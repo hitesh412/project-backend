@@ -3,7 +3,7 @@ const Order = require("../models/Order");
 
 const router = express.Router();
 
-
+// Create a new order
 router.post("/", async (req, res) => {
   try {
     const order = new Order(req.body);
@@ -14,7 +14,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-
+ // Get order by ID
  router.get("/:id", async (req, res) => {
   try {
     const order = await Order.findById(req.params.id);
@@ -25,7 +25,7 @@ router.post("/", async (req, res) => {
  });
 
 
-
+// Get all orders
 router.get("/", async (req, res) => {
    try {
      const orders = await Order.find(); 
@@ -34,7 +34,6 @@ router.get("/", async (req, res) => {
     res.status(500).json({ message: "Failed to fetch orders" });
    }
  });
-
 
 
 
