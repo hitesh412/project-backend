@@ -10,14 +10,14 @@ router.get("/", auth, async (req, res) => {
     const user = await User.findById(req.user.id).select("-password");
 
     // Get total orders of that user
-    const orders = await Order.countDocuments({
+    const totalOrders = await Order.countDocuments({
       user: req.user.id,
     });
 
     res.json({
       name: user.name,
       email: user.email,
-      orders,
+      totalOrders,
     });
   } catch (error) {
     res.status(500).json({ message: "Server error" });
