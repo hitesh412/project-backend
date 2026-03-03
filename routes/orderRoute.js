@@ -14,7 +14,7 @@ router.post("/", async (req, res) => {
   }
 });
 
- // Get order by ID
+ // Get order by OrderID
  router.get("/:id", async (req, res) => {
   try {
     const order = await Order.findById(req.params.id);
