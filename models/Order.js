@@ -9,12 +9,6 @@ const orderSchema = new mongoose.Schema(
       address: String,
     },
 
-    user: {
-  type: mongoose.Schema.Types.ObjectId,
-  ref: "User",
-  required: true,
-},
-
     items: [
       {
         id: String,

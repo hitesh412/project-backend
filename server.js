@@ -35,7 +35,7 @@ app.use('/api/auth', authRoutes);
 
 app.use("/api/orders", orderRoutes);
 
-app.use("/api/profile", require("./routes/user"))
+
 
 
 
