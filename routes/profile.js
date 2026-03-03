@@ -6,13 +6,14 @@ const auth = require("../middleware/auth");
 
 router.get("/", auth, async (req, res) => {
   try {
-    // Get logged-in user
-    const user = await User.findById(req.user.id).select("-password");
+    const [user, totalOrders] = await Promise.all([
+      User.findById(req.user.id).select("-password"),
+      Order.countDocuments({ user: req.user.id }),
+    ]);
 
-    // Get total orders of that user
-    const totalOrders = await Order.countDocuments({
-      user: req.user.id,
-    });
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
 
     res.json({
       name: user.name,
