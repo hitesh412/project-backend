@@ -14,6 +14,8 @@ const authRoutes = require("./routes/authRoute");
 
 const orderRoutes = require("./routes/orderRoute");
 
+const profileRoutes = require("./routes/profile");
+
 
 
 
@@ -32,6 +34,8 @@ app.use('/api/contact', contactRoutes);
 app.use('/api/auth', authRoutes);
 
 app.use("/api/orders", orderRoutes);
+
+app.use("/api/profile", profileRoutes);
 
 connectDB();
 
