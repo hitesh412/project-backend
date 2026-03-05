@@ -14,6 +14,8 @@ const authRoutes = require("./routes/authRoute");
 
 const orderRoutes = require("./routes/orderRoute");
 
+const userRoutes = require("./routes/userRoute");
+
 
 
 
@@ -34,6 +36,8 @@ app.use('/api/contact', contactRoutes);
 app.use('/api/auth', authRoutes);
 
 app.use("/api/orders", orderRoutes);
+
+app.use("/api/user", userRoutes);
 
 
 
